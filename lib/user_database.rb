@@ -18,6 +18,16 @@ class UserDatabase
     (@users[offset_id(id)] or raise UserNotFoundError).dup
   end
 
+  def find_user(username, password)
+    id = nil
+    @users.each do |user|
+      if (user[:username] == username) && (user[:password] == password)
+        p id = user[:id]
+      end
+    end
+    id
+  end
+
   def delete(id)
     @users.delete_at(offset_id(id)) or raise UserNotFoundError
   end
