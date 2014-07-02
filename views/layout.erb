@@ -1,0 +1,15 @@
+<html>
+  <head>
+
+  </head>
+  <body>
+  <h1>Alex's Database</h1>
+  <% if flash[:notice] %>
+      <p><%= flash[:notice] %>
+  <% end %>
+
+      <%= yield %>
+  <h2>END</h2>
+  </body>
+
+</html>

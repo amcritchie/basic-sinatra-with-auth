@@ -16,6 +16,10 @@ class App < Sinatra::Application
     erb :index
   end
 
+  get "index" do
+    erb :index
+  end
+
   get "/registration" do
     erb :registration
   end
@@ -24,19 +28,21 @@ class App < Sinatra::Application
     erb :registration
   end
 
-
   post "/login" do
     username = params[:username]
+    new_user = username
 
     if params[:password] != params[:password_confirmation] || username == ""
+      flash[:notice] = "Error: Try again!"
       redirect :registration
+    elsif new_user != nil
+      password = params[:password]
+      @user_database.insert({username: username, password: password})
+      flash[:notice] = "HI!" + username
+      new_user = nil
+      redirect "/"
     end
-    password = params[:password]
-    @user_database.insert({username: username, password: password})
-
-    erb :index
   end
-
 
 
 end
