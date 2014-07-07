@@ -3,14 +3,14 @@ require "spec_helper"
 feature "Homepage" do
   scenario "Has register button" do
     visit "/"
-    expect(page).to have_button("Registration")
+    expect(page).to have_button("Register")
   end
 end
 
 feature "Register Page" do
   scenario "checking the page" do
     visit "/"
-    click_link "Registration"
+    click_link "Register"
     expect(page).to have_content("Username")
     expect(page).to have_content("Password")
     expect(page).to have_content("Confirm Password")
@@ -20,21 +20,24 @@ end
 
 feature "Create Account" do
   scenario "creating an account" do
-    visit "/register"
-    # fill_in "username:", :with => "Alex"
-    # fill_in "password", :with => "pass1"
-    # fill_in "password_confirmation", :with => "pass1"
+    visit "/registration"
+    fill_in "username", :with => "Alex"
+    fill_in "password", :with => "pass1"
+    fill_in "password_confirmation", :with => "pass1"
     click_button "register"
+  end
+  scenario "login to account" do
+    visit "/"
+    fill_in "username", :with => "Alex"
+    fill_in "password", :with => "pass1"
+    click_button "Login"
+    expect(page).to have_content("Welcome User")
   end
 end
 
-feature "Add account" do
+feature "Login to account" do
   scenario "has a username typed in" do
-    session = Capybara::Session.new(:culerity, App)
-    visit "/register"
-    fill_in 'username', :with => "alexmcray"
-    fill_in "password", :with => "qwe"
-    fill_in "password_confirmation", :with => "qwe"
+    skip
   end
   # click_button "register"
   # expect(page).to have_content "Hi"

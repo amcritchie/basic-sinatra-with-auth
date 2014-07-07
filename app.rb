@@ -28,12 +28,12 @@ class App < Sinatra::Application
       flash[:notice] = "Please enter user information."
       redirect "/"
     end
-    p id = @user_database.find_user(params[:username],params[:password])
+    id = @user_database.find_user(params[:username], params[:password])
     if id == nil
       flash[:notice] = "Error: username or password is incorrect!"
       redirect "/"
     end
-    p @user_database.all
+    @user_database.all
     # p @user_database.delete(1)
     erb :user_home # , :locals => {:items => items, :search_items => @search_items}
   end
