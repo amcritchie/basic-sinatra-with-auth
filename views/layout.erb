@@ -1,15 +1,14 @@
-<html>
-  <head>
-
-  </head>
-  <body>
-  <h1>Alex's Database</h1>
-  <% if flash[:notice] %>
-      <p><%= flash[:notice] %>
-  <% end %>
-
-      <%= yield %>
-  <h2>END</h2>
-  </body>
-
-</html>
+<h1>Alex's Database</h1>
+<div class="wrapper">
+  <article class="one_fourth"></article>
+  <article class="one_half" id="flash_box">
+    <% if flash[:notice] %>
+        <p style="color: green"><%= flash[:notice] %>
+    <% elsif flash[:registration] %>
+        <p style="color: red"><%= flash[:registration] %></p>
+    <% end %>
+  </article>
+  <article class="one_forth"></article>
+</div>
+<%= yield %>
+<h2>END</h2>

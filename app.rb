@@ -1,6 +1,5 @@
 require "sinatra"
 require "rack-flash"
-
 require "./lib/user_database"
 
 class App < Sinatra::Application
@@ -36,7 +35,7 @@ class App < Sinatra::Application
     end
     p @user_database.all
     # p @user_database.delete(1)
-    redirect :user_home
+    erb :user_home # , :locals => {:items => items, :search_items => @search_items}
   end
 
   get "/registration" do
@@ -51,7 +50,7 @@ class App < Sinatra::Application
     elsif new_user != nil
       password = params[:password]
       @user_database.insert({username: new_user, password: password})
-      flash[:notice] = "HI!" + new_user
+      flash[:notice] = "Welcome " + new_user + "!!"
       new_user = nil
       redirect "/"
     end

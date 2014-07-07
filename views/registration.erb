@@ -1,4 +1,33 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>PAGE TITLE HERE</title>
+  <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
+  <link href="/style_sheet.css" rel="stylesheet"/>
+</head>
+
+<body>
+<div class="wrapper">
+  <section class="clearfix">
+    <article class="one_fourth"></article>
+    <article class="one_half">
+      <form action="/registration" method="post">
+        <label for="username">Username</label><br>
+        <input class="form_width" type="text" name="username"><br>
+        <label for="password">Password</label><br>
+        <input class="form_width" type="text" name="password"><br>
+        <label for="password_confirmation">Confirm Password</label><br>
+        <input class="form_width" type="text" name="password_confirm"><br><br>
+        <button id="submit_button">Submit</button>
+      </form>
+    </article>
+    <article class="one_fourth"></article>
+  </section>
+</div>
+</body>
+
 <h1>registration.erb</h1>
+
 <form action="/registration" method="post">
   Username: <input style="margin-left: 60px;" type="text" name="username"><br>
   Password: <input style="margin-left: 63px;" type="password" name="password"><br>

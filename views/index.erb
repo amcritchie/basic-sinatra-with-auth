@@ -1,4 +1,51 @@
-<a href="/registration"><button type="button" style="margin: 0 auto;display: block; width: 300px; height: 100px;">Registration</button></a>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>PAGE TITLE HERE</title>
+  <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
+  <link href="/style_sheet.css" rel="stylesheet"/>
+</head>
+
+<body>
+<div class="wrapper">
+  <section class="clearfix">
+    <article class="one_fourth"></article>
+    <article class="one_half">
+      <a href="/registration">
+        <button id="registration_button">Register</button>
+      </a>
+    </article>
+    <article class="one_fourth"></article>
+  </section>
+</div>
+
+<div style="text-align: center" class="wrapper">
+  <p>0R</p>
+</div>
+
+<div class="wrapper">
+  <section class="clearfix">
+    <article class="one_fourth">
+    </article>
+    <article class="one_half">
+      <form action="/login" method="post">
+        <label for="username">Username</label><br>
+        <input class="form_width" type="text" name="username"><br>
+        <label for="password">Password</label><br>
+        <input class="form_width" type="password" name="password"><br><br>
+        <button id="login_button">Login</button>
+      </form>
+    </article>
+    <article class="one_fourth"></article>
+  </section>
+</div>
+</body>
+</html>
+
+
+<a href="/registration">
+  <button type="button" style="margin: 0 auto;display: block; width: 300px; height: 100px;">Registration</button>
+</a>
 <p>0R</p>
 <form action="/login" method="post">
   Username: <input style="margin-left: 3px;" type="text" name="username"><br>

@@ -1,5 +1,45 @@
 require "spec_helper"
 
+feature "Homepage" do
+  scenario "Has register button" do
+    visit "/"
+    expect(page).to have_button("Registration")
+  end
+end
+
+feature "Register Page" do
+  scenario "checking the page" do
+    visit "/"
+    click_link "Registration"
+    expect(page).to have_content("Username")
+    expect(page).to have_content("Password")
+    expect(page).to have_content("Confirm Password")
+    expect(page).to have_button("register")
+  end
+end
+
+feature "Create Account" do
+  scenario "creating an account" do
+    visit "/register"
+    # fill_in "username:", :with => "Alex"
+    # fill_in "password", :with => "pass1"
+    # fill_in "password_confirmation", :with => "pass1"
+    click_button "register"
+  end
+end
+
+feature "Add account" do
+  scenario "has a username typed in" do
+    session = Capybara::Session.new(:culerity, App)
+    visit "/register"
+    fill_in 'username', :with => "alexmcray"
+    fill_in "password", :with => "qwe"
+    fill_in "password_confirmation", :with => "qwe"
+  end
+  # click_button "register"
+  # expect(page).to have_content "Hi"
+end
+
 describe UserDatabase do
   let(:user_database) { UserDatabase.new }
 
